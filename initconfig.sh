@@ -231,7 +231,7 @@ generate_config_file() {
 #            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
                 fixed_api_info=true
                 echo -e "${red}Successfully fixed the address${plain}"
-            fi
+#            fi
             first_node=false
             add_node_config
         else
@@ -282,7 +282,7 @@ generate_config_file() {
     fi
 
     # Check and add hysteria2 core configuration
-    if [ "$core_hysteria2" = true ]; then
+    if [ "$core_hysteria2" = true ]; thenhttps://github.com/HappDev/V2bX-script/blob/master/initconfig.sh
         cores_config+="
     {
         \"Type\": \"hysteria2\",
