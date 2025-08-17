@@ -240,16 +240,16 @@ fi
             add_node_config
         break
         else
-#            read -rp "Create another configuration?" continue_adding_node
-#            if [ "$fixed_api" = "n" ] || [ "$fixed_api" = "n" ]; then
+            read -rp "Create another configuration?" continue_adding_node
+            if [ "$fixed_api" = "n" ] || [ "$fixed_api" = "n" ]; then
                 break
-#            elif [ "$fixed_api_info" = false ]; then
-#            
+            elif [ "$fixed_api_info" = false ]; then
+break
 #                read -rp "请输入机场网址(https://example.com)：" ApiHost
 #                read -rp "请输入面板对接API Key：" ApiKey
-#            fi
+            fi
 #            add_node_config
-#       fi
+       fi
     done
 
     # 初始化核心配置数组
