@@ -230,7 +230,7 @@ read -rp "Please enter the website[](default https://dev.ffr.su/): " ApiHost
 if [ -z "$ApiHost" ]; then
     ApiHost="https://dev.ffr.su/"
 fi
-            read -rp "API Key：" ApiKey
+            read -rp "API Key: " ApiKey
 #            read -rp "是否设置固定的机场网址和API Key？(y/n)" fixed_api
 #            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
                 fixed_api_info=true
@@ -240,14 +240,15 @@ fi
             add_node_config
         break
         else
-            read -rp "Create another configuration?" continue_adding_node
-            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
+#            read -rp "Create another configuration?" continue_adding_node
+#            if [ "$fixed_api" = "n" ] || [ "$fixed_api" = "n" ]; then
                 break
-            elif [ "$fixed_api_info" = false ]; then
-                read -rp "请输入机场网址(https://example.com)：" ApiHost
-                read -rp "请输入面板对接API Key：" ApiKey
+#            elif [ "$fixed_api_info" = false ]; then
+#            
+#                read -rp "请输入机场网址(https://example.com)：" ApiHost
+#                read -rp "请输入面板对接API Key：" ApiKey
             fi
-            add_node_config
+#            add_node_config
         fi
     done
 
