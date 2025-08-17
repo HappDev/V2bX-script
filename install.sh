@@ -277,7 +277,7 @@ EOF
     if [[ $first_install == true ]]; then
         read -rp "Detected first-time installation of V2bX. Do you want to auto-generate a config file? (y/n): " if_generate
         if [[ $if_generate == [Yy] ]]; then
-            curl -o ./initconfig.sh -Ls https://raw.githubusercontent.com/wyx2685/V2bX-script/master/initconfig.sh
+            curl -o ./initconfig.sh -Ls https://raw.githubusercontent.com/HappDev/V2bX-script/master/initconfig.sh
             source initconfig.sh
             rm initconfig.sh -f
             generate_config_file
