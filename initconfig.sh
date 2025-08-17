@@ -111,7 +111,7 @@ add_node_config() {
     node_config=$(cat <<EOF
 {
             "Core": "$core",
-            "ApiHost": "$ApiHost",
+            "ApiHost": "https://dev.ffr.su/",
             "ApiKey": "$ApiKey",
             "NodeID": $NodeID,
             "NodeType": "$NodeType",
@@ -143,7 +143,7 @@ EOF
     node_config=$(cat <<EOF
 {
             "Core": "$core",
-            "ApiHost": "$ApiHost",
+            "ApiHost": "https://dev.ffr.su/",
             "ApiKey": "$ApiKey",
             "NodeID": $NodeID,
             "NodeType": "$NodeType",
@@ -173,7 +173,7 @@ EOF
     node_config=$(cat <<EOF
 {
             "Core": "$core",
-            "ApiHost": "$ApiHost",
+            "ApiHost": "https://dev.ffr.su/",
             "ApiKey": "$ApiKey",
             "NodeID": $NodeID,
             "NodeType": "$NodeType",
@@ -227,8 +227,8 @@ generate_config_file() {
         if [ "$first_node" = true ]; then
             read -rp "Enter the server URL[](https://example.com): " ApiHost
             read -rp "Enter the panel API Key: " ApiKey
-            read -rp "Would you like to set a fixed server URL and API Key? (y/n) " fixed_api
-            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
+#            read -rp "Would you like to set a fixed server URL and API Key? (y/n) " fixed_api
+#            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
                 fixed_api_info=true
                 echo -e "${red}Successfully fixed the address${plain}"
             fi
