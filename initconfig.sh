@@ -249,7 +249,7 @@ fi
 #                read -rp "请输入面板对接API Key：" ApiKey
 #            fi
 #            add_node_config
-        fi
+#       fi
     done
 
     # 初始化核心配置数组
