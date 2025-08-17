@@ -30,7 +30,7 @@ add_node_config() {
         continue
     fi
     while true; do
-        read -rp "请输入节点Node ID：" NodeID
+        read -rp "Node ID: " NodeID
         # 判断NodeID是否为正整数
         if [[ "$NodeID" =~ ^[0-9]+$ ]]; then
             break  # 输入正确，退出循环
