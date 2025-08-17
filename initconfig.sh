@@ -240,7 +240,7 @@ fi
             add_node_config
         else
             read -rp "Create another configuration?" continue_adding_node
-            if [[ "$continue_adding_node" !=y ]]; then
+            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
                 break
             elif [ "$fixed_api_info" = false ]; then
                 read -rp "请输入机场网址(https://example.com)：" ApiHost
