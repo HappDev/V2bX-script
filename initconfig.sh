@@ -238,6 +238,7 @@ fi
 #            fi
             first_node=false
             add_node_config
+        break
         else
             read -rp "Create another configuration?" continue_adding_node
             if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
