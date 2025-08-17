@@ -203,17 +203,17 @@ EOF
 }
 
 generate_config_file() {
-    echo -e "${yellow}V2bX 配置文件生成向导${plain}"
-    echo -e "${red}请阅读以下注意事项：${plain}"
-    echo -e "${red}1. 目前该功能正处测试阶段${plain}"
-    echo -e "${red}2. 生成的配置文件会保存到 /etc/V2bX/config.json${plain}"
-    echo -e "${red}3. 原来的配置文件会保存到 /etc/V2bX/config.json.bak${plain}"
-    echo -e "${red}4. 目前仅部分支持TLS${plain}"
-    echo -e "${red}5. 使用此功能生成的配置文件会自带审计，确定继续？(y/n)${plain}"
-    read -rp "请输入：" continue_prompt
-    if [[ "$continue_prompt" =~ ^[Nn][Oo]? ]]; then
-        exit 0
-    fi
+#    echo -e "${yellow}V2bX 配置文件生成向导${plain}"
+#    echo -e "${red}请阅读以下注意事项：${plain}"
+#    echo -e "${red}1. 目前该功能正处测试阶段${plain}"
+#    echo -e "${red}2. 生成的配置文件会保存到 /etc/V2bX/config.json${plain}"
+#    echo -e "${red}3. 原来的配置文件会保存到 /etc/V2bX/config.json.bak${plain}"
+#    echo -e "${red}4. 目前仅部分支持TLS${plain}"
+#    echo -e "${red}5. 使用此功能生成的配置文件会自带审计，确定继续？(y/n)${plain}"
+#    read -rp "请输入：" continue_prompt
+#    if [[ "$continue_prompt" =~ ^[Nn][Oo]? ]]; then
+#        exit 0
+#    fi
     
     nodes_config=()
     first_node=true
@@ -225,8 +225,12 @@ generate_config_file() {
     
     while true; do
         if [ "$first_node" = true ]; then
-            read -rp "请输入机场网址(https://example.com)：" ApiHost
-            read -rp "请输入面板对接API Key：" ApiKey
+#            read -rp "Please enter the website(https://example.com)：" ApiHost2
+read -rp "Please enter the website[](default https://dev.ffr.su/): " ApiHost
+if [ -z "$ApiHost" ]; then
+    ApiHost="https://dev.ffr.su/"
+fi
+            read -rp "API Key：" ApiKey
 #            read -rp "是否设置固定的机场网址和API Key？(y/n)" fixed_api
 #            if [ "$fixed_api" = "y" ] || [ "$fixed_api" = "Y" ]; then
                 fixed_api_info=true
@@ -235,8 +239,8 @@ generate_config_file() {
             first_node=false
             add_node_config
         else
-            read -rp "是否继续添加节点配置？(回车继续，输入n或no退出)" continue_adding_node
-            if [[ "$continue_adding_node" =~ ^[Nn][Oo]? ]]; then
+            read -rp "Create another configuration?" continue_adding_node
+            if [[ "$continue_adding_node" !=y ]]; then
                 break
             elif [ "$fixed_api_info" = false ]; then
                 read -rp "请输入机场网址(https://example.com)：" ApiHost
