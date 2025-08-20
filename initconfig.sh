@@ -11,7 +11,7 @@ check_ipv6_support() {
 }
 
 add_node_config() {
-    echo -e "${green}请选择节点核心类型：${plain}"
+    echo -e "${green}Please select the node core type：${plain}"
     echo -e "${green}1. xray${plain}"
     echo -e "${green}2. singbox${plain}"
     echo -e "${green}3. hysteria2${plain}"
@@ -26,7 +26,7 @@ add_node_config() {
         core="hysteria2"
         core_hysteria2=true
     else
-        echo "无效的选择。请选择 1 2 3。"
+        echo "Invalid selection. Please select 1 2 3."
         continue
     fi
     while true; do
@@ -73,7 +73,7 @@ add_node_config() {
     fi
     fastopen=true
     if [ "$NodeType" == "vless" ]; then
-        read -rp "请选择是否为reality节点？(y/n)" isreality
+        read -rp "reality？(y/n)" isreality
     elif [ "$NodeType" == "hysteria" ] || [ "$NodeType" == "hysteria2" ] || [ "$NodeType" == "tuic" ] || [ "$NodeType" == "anytls" ]; then
         fastopen=false
         istls="y"
@@ -86,19 +86,19 @@ add_node_config() {
     certmode="none"
     certdomain="example.com"
     if [[ "$isreality" != "y" && "$isreality" != "Y" && ( "$istls" == "y" || "$istls" == "Y" ) ]]; then
-        echo -e "${yellow}请选择证书申请模式：${plain}"
-        echo -e "${green}1. http模式自动申请，节点域名已正确解析${plain}"
-        echo -e "${green}2. dns模式自动申请，需填入正确域名服务商API参数${plain}"
-        echo -e "${green}3. self模式，自签证书或提供已有证书文件${plain}"
-        read -rp "请输入：" certmode
+        echo -e "${yellow}Please select the certificate application mode: ${plain}"
+        echo -e "${green}1. Automatic application in http mode, the node domain name has been correctly resolved. ${plain}"
+        echo -e "${green}2. Automatic application in dns mode, the correct domain name service provider API parameters must be entered. ${plain}"
+        echo -e "${green}3. Self-signed certificate mode, or provide an existing certificate file. ${plain}"
+        read -rp "Please enter：" certmode
         case "$certmode" in
             1 ) certmode="http" ;;
             2 ) certmode="dns" ;;
             3 ) certmode="self" ;;
         esac
-        read -rp "请输入节点证书域名(example.com)：" certdomain
+        read -rp "Please enter the node certificate domain name(example.com)：" certdomain
         if [ "$certmode" != "http" ]; then
-            echo -e "${red}请手动修改配置文件后重启V2bX！${plain}"
+            echo -e "${red}Please manually modify the configuration file and restart V2bX！${plain}"
         fi
     fi
     ipv6_support=$(check_ipv6_support)
@@ -226,9 +226,9 @@ generate_config_file() {
     while true; do
         if [ "$first_node" = true ]; then
 #            read -rp "Please enter the website(https://example.com)：" ApiHost2
-read -rp "Please enter the website[](default https://dev.ffr.su/): " ApiHost
+read -rp "Please enter the website[](default https://ffr.su/): " ApiHost
 if [ -z "$ApiHost" ]; then
-    ApiHost="https://dev.ffr.su/"
+    ApiHost="https://ffr.su/"
 fi
             read -rp "API Key: " ApiKey
 #            read -rp "是否设置固定的机场网址和API Key？(y/n)" fixed_api
