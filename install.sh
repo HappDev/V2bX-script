@@ -275,8 +275,8 @@ EOF
     echo "------------------------------------------"
     # Ask if generate config file on first install
     if [[ $first_install == true ]]; then
-        read -rp "Detected first-time installation of V2bX. Do you want to auto-generate a config file? (y/n): " if_generate
-        if [[ $if_generate == [Yy] ]]; then
+        read -rp "Detected first-time installation of V2bX. Cancel automatically generate configuration file? (yes/no): " if_generate
+        if [[ $if_generate != [Nn] ]]; then
             curl -o ./initconfig.sh -Ls https://raw.githubusercontent.com/HappDev/V2bX-script/master/initconfig.sh
             source initconfig.sh
             rm initconfig.sh -f
